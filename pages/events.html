@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Odkrywaj wydarzenia, koncerty, festiwale i atrakcje w swojej okolicy na KlikEvent.">
+    <meta name="theme-color" content="#241047">
+    <title>Wydarzenia | KlikEvent</title>
+
+    <link rel="icon" href="../assets/icons/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="../js/events.js" defer></script>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-container">
+            <a class="logo" href="../index.html" aria-label="KlikEvent — strona główna">
+                Klik<span>Event</span>
+            </a>
+
+            <nav class="main-navigation" aria-label="Menu główne">
+                <a href="../index.html">Strona główna</a>
+                <a href="events.html" aria-current="page">Wydarzenia</a>
+                <a href="../index.html#kategorie">Kategorie</a>
+                <a href="../index.html#miasta">Miasta</a>
+            </nav>
+
+            <div class="header-actions">
+                <a class="btn btn-outline" href="login.html">Zaloguj się</a>
+                <a class="btn btn-primary" href="register.html">Dołącz do nas</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="events-hero">
+            <div class="container">
+                <p class="events-eyebrow">ZNAJDŹ COŚ DLA SIEBIE</p>
+                <h1>Odkrywaj wydarzenia.<br><span>Twórz wspomnienia.</span></h1>
+                <p class="events-hero-description">
+                    Koncerty, festiwale, spotkania i wyjątkowe atrakcje.
+                    Wybierz coś dla siebie!
+                </p>
+            </div>
+        </section>
+
+        <section class="events-page-section">
+            <div class="container">
+                <div class="events-page-heading">
+                    <div>
+                        <p class="events-eyebrow">CO DZIEJE SIĘ W OKOLICY?</p>
+                        <h2>Wszystkie wydarzenia</h2>
+                    </div>
+                    <p id="events-count" class="events-count" aria-live="polite">
+                        Ładowanie wydarzeń...
+                    </p>
+                </div>
+
+                <div class="events-layout">
+                    <aside class="events-filters">
+                        <div class="filters-heading">
+                            <h3>Filtruj wydarzenia</h3>
+                            <button type="button" id="clear-filters" class="clear-filters">
+                                Wyczyść
+                            </button>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="filter-search">Nazwa wydarzenia</label>
+                            <input
+                                type="search"
+                                id="filter-search"
+                                placeholder="Np. koncert, festiwal..."
+                            >
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="filter-city">Miasto</label>
+                            <select id="filter-city">
+                                <option value="">Wszystkie miasta</option>
+                                <option value="Warszawa">Warszawa</option>
+                                <option value="Kraków">Kraków</option>
+                                <option value="Wrocław">Wrocław</option>
+                                <option value="Gdańsk">Gdańsk</option>
+                                <option value="Poznań">Poznań</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="filter-category">Kategoria</label>
+                            <select id="filter-category">
+                                <option value="">Wszystkie kategorie</option>
+                                <option value="Muzyka">Muzyka</option>
+                                <option value="Festiwale">Festiwale</option>
+                                <option value="Sport">Sport</option>
+                                <option value="Kultura">Kultura</option>
+                                <option value="Jedzenie">Jedzenie</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="filter-price">Maksymalna cena</label>
+                            <div class="price-filter-value">
+                                <span>Do</span>
+                                <strong id="price-value">200 zł</strong>
+                            </div>
+                            <input
+                                type="range"
+                                id="filter-price"
+                                min="0"
+                                max="200"
+                                step="10"
+                                value="200"
+                            >
+                        </div>
+                    </aside>
+
+                    <div class="events-results">
+                        <div class="events-toolbar">
+                            <p>Znajdź wydarzenie dla siebie</p>
+                            <div class="sort-control">
+                                <label for="sort-events">Sortuj:</label>
+                                <select id="sort-events">
+                                    <option value="date">Najbliższa data</option>
+                                    <option value="price-asc">Cena: od najniższej</option>
+                                    <option value="price-desc">Cena: od najwyższej</option>
+                                    <option value="name">Nazwa: A–Z</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div id="events-grid" class="events-grid">
+                            <!-- Karty wydarzeń generuje plik js/events.js -->
+                        </div>
+
+                        <div id="no-events" class="no-events" hidden>
+                            <span class="no-events-icon" aria-hidden="true">🔎</span>
+                            <h3>Nie znaleźliśmy takich wydarzeń</h3>
+                            <p>Zmień filtry lub wyczyść wyszukiwanie.</p>
+                            <button type="button" id="reset-empty-filters" class="btn btn-primary">
+                                Pokaż wszystkie wydarzenia
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-bottom">
+            <a class="logo footer-logo" href="../index.html">
+                Klik<span>Event</span>
+            </a>
+            <p>© 2026 KlikEvent. Kliknij. Odkryj. Przeżyj.</p>
+            <a href="../index.html">Wróć na stronę główną</a>
+        </div>
+    </footer>
+
+</body>
+</html>
