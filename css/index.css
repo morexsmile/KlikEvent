@@ -1578,3 +1578,39 @@ input:focus-visible {
         transition-duration: 0.01ms !important;
     }
 }
+
+
+
+
+/* JAVASCRIPT NOTIFICATIONS */
+
+.site-notification {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 9999;
+    max-width: min(400px, calc(100% - 48px));
+    padding: 16px 22px;
+    color: #FFFFFF;
+    background: #241047;
+    border-left: 4px solid #20B889;
+    border-radius: 12px;
+    box-shadow: 0 12px 35px rgba(24, 11, 53, 0.2);
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: opacity 0.25s ease, transform 0.25s ease,
+                visibility 0.25s ease;
+}
+
+.site-notification.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.site-notification[data-type="error"] {
+    border-left-color: #F34D5B;
+}
