@@ -1,0 +1,890 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KlikEvent – Odkrywaj wydarzenia. Przeżywaj więcej.</title>
+
+    <meta
+        name="description"
+        content="Odkrywaj koncerty, festiwale, warsztaty, wydarzenia sportowe i atrakcje w swojej okolicy. Znajdź coś, co warto przeżyć z KlikEvent!"
+    >
+
+    <meta name="theme-color" content="#180B35">
+    <meta name="author" content="KlikEvent">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="KlikEvent – Kliknij. Odkryj. Przeżyj.">
+    <meta
+        property="og:description"
+        content="Odkrywaj wydarzenia, atrakcje i aktywności w swojej okolicy."
+    >
+
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/index.css">
+
+    <script src="js/index.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ACCESSIBILITY: SKIP LINK -->
+
+    <a href="#main-content" class="skip-link">
+        Przejdź do głównej zawartości
+    </a>
+
+
+    <!-- HEADER -->
+
+    <header class="site-header" id="top">
+
+        <div class="container header-container">
+
+            <a href="index.html" class="logo" aria-label="KlikEvent – strona główna">
+                <span class="logo-icon" aria-hidden="true">
+                    <svg viewBox="0 0 40 40" fill="none">
+                        <rect x="5" y="7" width="30" height="28" rx="7"
+                              stroke="currentColor" stroke-width="3"/>
+                        <path d="M12 4V11M28 4V11M5 16H35"
+                              stroke="currentColor" stroke-width="3"
+                              stroke-linecap="round"/>
+                        <path d="M20 19L22.5 24L28 24.8L24 28.7L25 34L20 31.5L15 34L16 28.7L12 24.8L17.5 24Z"
+                              fill="currentColor"/>
+                    </svg>
+                </span>
+
+                <span class="logo-text">
+                    Klik<span>Event</span>
+                </span>
+            </a>
+
+
+            <nav class="main-navigation" aria-label="Menu główne">
+
+                <a href="#wydarzenia" class="nav-link active">
+                    Wydarzenia
+                </a>
+
+                <a href="#kategorie" class="nav-link">
+                    Kategorie
+                </a>
+
+                <a href="#miasta" class="nav-link">
+                    Miasta
+                </a>
+
+                <a href="#organizatorzy" class="nav-link">
+                    Dla organizatorów
+                </a>
+
+                <a href="#onas" class="nav-link">
+                    O nas
+                </a>
+
+            </nav>
+
+
+            <div class="header-actions">
+
+                <a href="pages/login.html" class="login-link">
+                    Zaloguj się
+                </a>
+
+                <a href="pages/register.html" class="btn btn-primary">
+                    Dołącz do nas
+                </a>
+
+            </div>
+
+
+            <button
+                class="mobile-menu-toggle"
+                type="button"
+                aria-label="Otwórz menu"
+                aria-expanded="false"
+                aria-controls="mobile-navigation"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </div>
+
+
+        <!-- MOBILE NAVIGATION -->
+
+        <nav
+            class="mobile-navigation"
+            id="mobile-navigation"
+            aria-label="Menu mobilne"
+            hidden
+        >
+
+            <a href="#wydarzenia">Wydarzenia</a>
+            <a href="#kategorie">Kategorie</a>
+            <a href="#miasta">Miasta</a>
+            <a href="#organizatorzy">Dla organizatorów</a>
+            <a href="#onas">O nas</a>
+
+            <div class="mobile-navigation-actions">
+                <a href="pages/login.html">Zaloguj się</a>
+                <a href="pages/register.html" class="btn btn-primary">
+                    Dołącz do nas
+                </a>
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main id="main-content">
+
+
+        <!-- HERO SECTION -->
+
+        <section class="hero-section">
+
+            <div class="hero-background" aria-hidden="true"></div>
+
+            <div class="container hero-container">
+
+                <div class="hero-content">
+
+                    <span class="hero-eyebrow">
+                        <span class="eyebrow-dot"></span>
+                        TWOJE MIASTO. TWOJE MOŻLIWOŚCI.
+                    </span>
+
+
+                    <h1>
+                        Kliknij. Odkryj.
+                        <span>Przeżyj.</span>
+                    </h1>
+
+
+                    <p class="hero-description">
+                        Odkrywaj najciekawsze wydarzenia, atrakcje
+                        i aktywności. Znajdź inspirację na swój wolny czas
+                        i przeżywaj więcej każdego dnia.
+                    </p>
+
+
+                    <!-- EVENT SEARCH -->
+
+                    <form class="hero-search" id="eventSearchForm">
+
+                        <div class="search-input-group">
+
+                            <label for="searchQuery">
+                                <span class="search-icon" aria-hidden="true">
+                                    &#9906;
+                                </span>
+
+                                <span class="visually-hidden">
+                                    Czego szukasz?
+                                </span>
+
+                                <input
+                                    type="search"
+                                    id="searchQuery"
+                                    name="query"
+                                    placeholder="Koncerty, festiwale, warsztaty..."
+                                    autocomplete="off"
+                                >
+                            </label>
+
+                        </div>
+
+
+                        <div class="search-input-group location-input-group">
+
+                            <label for="searchLocation">
+                                <span class="location-icon" aria-hidden="true">
+                                    &#9906;
+                                </span>
+
+                                <span class="visually-hidden">
+                                    Wybierz miasto
+                                </span>
+
+                                <input
+                                    type="text"
+                                    id="searchLocation"
+                                    name="location"
+                                    placeholder="Wpisz miasto"
+                                    autocomplete="address-level2"
+                                >
+                            </label>
+
+                        </div>
+
+
+                        <button type="submit" class="btn btn-search">
+                            Szukaj wydarzeń
+                            <span aria-hidden="true">&rarr;</span>
+                        </button>
+
+                    </form>
+
+
+                    <div class="popular-searches">
+
+                        <span>Popularne:</span>
+
+                        <a href="pages/events.html?category=koncerty">
+                            Koncerty
+                        </a>
+
+                        <a href="pages/events.html?category=festiwale">
+                            Festiwale
+                        </a>
+
+                        <a href="pages/events.html?category=warsztaty">
+                            Warsztaty
+                        </a>
+
+                        <a href="pages/events.html?category=sport">
+                            Sport
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-decoration" aria-hidden="true">
+                    <span class="decoration-star">✦</span>
+                    <span class="decoration-circle"></span>
+                    <span class="decoration-spark">✳</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- CATEGORIES -->
+
+        <section class="categories-section section" id="kategorie">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="section-heading-content">
+
+                        <span class="section-eyebrow">
+                            ODKRYWAJ MOŻLIWOŚCI
+                        </span>
+
+                        <h2>
+                            Co Cię dziś <span>kręci?</span>
+                        </h2>
+
+                        <p>
+                            Wybierz coś dla siebie i zaplanuj wyjątkowy czas.
+                        </p>
+
+                    </div>
+
+                    <a href="pages/categories.html" class="section-link">
+                        Wszystkie kategorie
+                        <span aria-hidden="true">&rarr;</span>
+                    </a>
+
+                </div>
+
+
+                <div class="categories-grid">
+
+
+                    <a
+                        href="pages/events.html?category=koncerty"
+                        class="category-card"
+                    >
+                        <span class="category-icon category-purple">
+                            &#127926;
+                        </span>
+
+                        <h3>Koncerty</h3>
+                        <p>Muzyka na żywo</p>
+
+                    </a>
+
+
+                    <a
+                        href="pages/events.html?category=teatr"
+                        class="category-card"
+                    >
+                        <span class="category-icon category-orange">
+                            &#127917;
+                        </span>
+
+                        <h3>Teatr</h3>
+                        <p>Sztuka i kultura</p>
+
+                    </a>
+
+
+                    <a
+                        href="pages/events.html?category=sport"
+                        class="category-card"
+                    >
+                        <span class="category-icon category-blue">
+                            &#127939;
+                        </span>
+
+                        <h3>Sport</h3>
+                        <p>Ruch i adrenalina</p>
+
+                    </a>
+
+
+                    <a
+                        href="pages/events.html?category=warsztaty"
+                        class="category-card"
+                    >
+                        <span class="category-icon category-pink">
+                            &#127912;
+                        </span>
+
+                        <h3>Warsztaty</h3>
+                        <p>Rozwijaj swoje pasje</p>
+
+                    </a>
+
+
+                    <a
+                        href="pages/events.html?category=dla-dzieci"
+                        class="category-card"
+                    >
+                        <span class="category-icon category-yellow">
+                            &#11088;
+                        </span>
+
+                        <h3>Dla dzieci</h3>
+                        <p>Rodzinne atrakcje</p>
+
+                    </a>
+
+
+                    <a
+                        href="pages/events.html?category=imprezy"
+                        class="category-card"
+                    >
+                        <span class="category-icon category-green">
+                            &#127881;
+                        </span>
+
+                        <h3>Imprezy</h3>
+                        <p>Spotkania i zabawa</p>
+
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- FEATURED EVENTS -->
+
+        <section class="events-section section" id="wydarzenia">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="section-heading-content">
+
+                        <span class="section-eyebrow">
+                            WYBRANE DLA CIEBIE
+                        </span>
+
+                        <h2>
+                            Popularne <span>wydarzenia</span>
+                        </h2>
+
+                        <p>
+                            Inspiracje, które warto dodać do swojego kalendarza.
+                        </p>
+
+                    </div>
+
+                    <a href="pages/events.html" class="section-link">
+                        Zobacz wszystkie
+                        <span aria-hidden="true">&rarr;</span>
+                    </a>
+
+                </div>
+
+
+                <div class="events-grid">
+
+
+                    <!-- EVENT 1 -->
+
+                    <article class="event-card">
+
+                        <a
+                            href="pages/event-details.html?id=1"
+                            class="event-image-link"
+                            aria-label="Zobacz szczegóły wydarzenia: Wieczór Muzyki na Żywo"
+                        >
+
+                            <img
+                                src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800&auto=format&fit=crop&q=85"
+                                alt="Koncert muzyczny i publiczność"
+                                loading="lazy"
+                            >
+
+                            <span class="event-category-badge">
+                                Koncert
+                            </span>
+
+                            <span class="event-date">
+                                <strong>21</strong>
+                                <span>LIS</span>
+                            </span>
+
+                        </a>
+
+
+                        <div class="event-card-content">
+
+                            <div class="event-location">
+                                <span aria-hidden="true">&#128205;</span>
+                                Warszawa
+                            </div>
+
+                            <h3>
+                                <a href="pages/event-details.html?id=1">
+                                    Wieczór Muzyki na Żywo
+                                </a>
+                            </h3>
+
+                            <p>
+                                Muzyka, energia i niezapomniana atmosfera.
+                            </p>
+
+
+                            <div class="event-card-footer">
+
+                                <span class="event-price">
+                                    Od 59 zł
+                                </span>
+
+                                <a href="pages/event-details.html?id=1">
+                                    Szczegóły
+                                    <span aria-hidden="true">&rarr;</span>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- EVENT 2 -->
+
+                    <article class="event-card">
+
+                        <a
+                            href="pages/event-details.html?id=2"
+                            class="event-image-link"
+                            aria-label="Zobacz szczegóły wydarzenia: Festiwal Miejskich Inspiracji"
+                        >
+
+                            <img
+                                src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&auto=format&fit=crop&q=85"
+                                alt="Festiwal i wydarzenie plenerowe"
+                                loading="lazy"
+                            >
+
+                            <span class="event-category-badge">
+                                Festiwal
+                            </span>
+
+                            <span class="event-date">
+                                <strong>28</strong>
+                                <span>LIS</span>
+                            </span>
+
+                        </a>
+
+
+                        <div class="event-card-content">
+
+                            <div class="event-location">
+                                <span aria-hidden="true">&#128205;</span>
+                                Kraków
+                            </div>
+
+                            <h3>
+                                <a href="pages/event-details.html?id=2">
+                                    Festiwal Miejskich Inspiracji
+                                </a>
+                            </h3>
+
+                            <p>
+                                Jedzenie, muzyka i wyjątkowi ludzie.
+                            </p>
+
+
+                            <div class="event-card-footer">
+
+                                <span class="event-price">
+                                    Od 35 zł
+                                </span>
+
+                                <a href="pages/event-details.html?id=2">
+                                    Szczegóły
+                                    <span aria-hidden="true">&rarr;</span>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- EVENT 3 -->
+
+                    <article class="event-card">
+
+                        <a
+                            href="pages/event-details.html?id=3"
+                            class="event-image-link"
+                            aria-label="Zobacz szczegóły wydarzenia: Joga pod Gołym Niebem"
+                        >
+
+                            <img
+                                src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&auto=format&fit=crop&q=85"
+                                alt="Zajęcia jogi i relaks na świeżym powietrzu"
+                                loading="lazy"
+                            >
+
+                            <span class="event-category-badge">
+                                Wellness
+                            </span>
+
+                            <span class="event-date">
+                                <strong>05</strong>
+                                <span>GRU</span>
+                            </span>
+
+                        </a>
+
+
+                        <div class="event-card-content">
+
+                            <div class="event-location">
+                                <span aria-hidden="true">&#128205;</span>
+                                Wrocław
+                            </div>
+
+                            <h3>
+                                <a href="pages/event-details.html?id=3">
+                                    Joga pod Gołym Niebem
+                                </a>
+                            </h3>
+
+                            <p>
+                                Odpocznij, zrelaksuj się i zadbaj o siebie.
+                            </p>
+
+
+                            <div class="event-card-footer">
+
+                                <span class="event-price">
+                                    Bezpłatnie
+                                </span>
+
+                                <a href="pages/event-details.html?id=3">
+                                    Szczegóły
+                                    <span aria-hidden="true">&rarr;</span>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- DISCOVER CITIES -->
+
+        <section class="cities-section section" id="miasta">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="section-heading-content">
+
+                        <span class="section-eyebrow">
+                            ODKRYWAJ POLSKĘ
+                        </span>
+
+                        <h2>
+                            Co dzieje się <span>w Twoim mieście?</span>
+                        </h2>
+
+                        <p>
+                            Wybierz miasto i odkryj wydarzenia w swojej okolicy.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="cities-grid">
+
+
+                    <a
+                        href="pages/events.html?city=warszawa"
+                        class="city-card city-warsaw"
+                    >
+                        <span class="city-overlay"></span>
+                        <span class="city-name">Warszawa</span>
+                        <span class="city-arrow" aria-hidden="true">&rarr;</span>
+                    </a>
+
+
+                    <a
+                        href="pages/events.html?city=krakow"
+                        class="city-card city-krakow"
+                    >
+                        <span class="city-overlay"></span>
+                        <span class="city-name">Kraków</span>
+                        <span class="city-arrow" aria-hidden="true">&rarr;</span>
+                    </a>
+
+
+                    <a
+                        href="pages/events.html?city=wroclaw"
+                        class="city-card city-wroclaw"
+                    >
+                        <span class="city-overlay"></span>
+                        <span class="city-name">Wrocław</span>
+                        <span class="city-arrow" aria-hidden="true">&rarr;</span>
+                    </a>
+
+
+                    <a
+                        href="pages/events.html?city=gdansk"
+                        class="city-card city-gdansk"
+                    >
+                        <span class="city-overlay"></span>
+                        <span class="city-name">Gdańsk</span>
+                        <span class="city-arrow" aria-hidden="true">&rarr;</span>
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ORGANIZERS CTA -->
+
+        <section class="organizer-section" id="organizatorzy">
+
+            <div class="container organizer-container">
+
+                <div class="organizer-content">
+
+                    <span class="section-eyebrow">
+                        DLA ORGANIZATORÓW
+                    </span>
+
+                    <h2>
+                        Masz pomysł na wydarzenie?
+                        <span>Pokaż go światu!</span>
+                    </h2>
+
+                    <p>
+                        Dołącz do KlikEvent i docieraj do osób,
+                        które szukają nowych doświadczeń.
+                        Promuj swoje wydarzenia i rozwijaj swoją społeczność.
+                    </p>
+
+                    <a href="pages/register.html" class="btn btn-light">
+                        Dodaj swoje wydarzenie
+                        <span aria-hidden="true">&rarr;</span>
+                    </a>
+
+                </div>
+
+
+                <div class="organizer-visual" aria-hidden="true">
+
+                    <div class="organizer-visual-card">
+                        <span class="visual-star">✦</span>
+                        <span class="visual-word">CREATE</span>
+                        <span class="visual-word visual-word-accent">EVENTS</span>
+                        <span class="visual-decoration">✳</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- NEWSLETTER -->
+        <section class="newsletter-section section">
+            <div class="container newsletter-container">
+                <div class="newsletter-content">
+                    <span class="section-eyebrow">
+                        BĄDŹ NA BIEŻĄCO
+                    </span>
+
+                    <h2>
+                        Nie przegap <span>niczego ciekawego!</span>
+                    </h2>
+
+                    <p>
+                        Zapisz się do newslettera i otrzymuj inspiracje,
+                        polecane wydarzenia oraz informacje o nowościach.
+                    </p>
+
+                </div>
+
+                <form class="newsletter-form" id="newsletterForm">
+                    <label for="newsletterEmail" class="visually-hidden">
+                        Twój adres e-mail
+                    </label>
+
+                    <input
+                        type="email"
+                        id="newsletterEmail"
+                        name="email"
+                        placeholder="Wpisz swój adres e-mail"
+                        autocomplete="email"
+                        required
+                    >
+
+                    <button type="submit" class="btn btn-primary">
+                        Zapisz się
+                        <span aria-hidden="true">&rarr;</span>
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer" id="onas">
+        <div class="container footer-main">
+            <!-- BRAND -->
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon" aria-hidden="true">✦</span>
+                    <span class="logo-text">
+                        Klik<span>Event</span>
+                    </span>
+                </a>
+
+                <p>
+                    Kliknij. Odkryj. Przeżyj.
+                    Znajdź coś, co warto przeżyć!
+                </p>
+
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram KlikEvent">
+                        Instagram
+                    </a>
+
+                    <a href="#" aria-label="Facebook KlikEvent">
+                        Facebook
+                    </a>
+
+                    <a href="#" aria-label="TikTok KlikEvent">
+                        TikTok
+                    </a>
+                </div>
+            </div>
+
+            <!-- DISCOVER -->
+            <div class="footer-column">
+                <h3>Odkrywaj</h3>
+                <a href="pages/events.html">Wszystkie wydarzenia</a>
+                <a href="pages/categories.html">Kategorie</a>
+                <a href="#miasta">Miasta</a>
+                <a href="pages/events.html?category=koncerty">Koncerty</a>
+                <a href="pages/events.html?category=sport">Sport</a>
+            </div>
+
+            <!-- PLATFORM -->
+            <div class="footer-column">
+                <h3>Platforma</h3>
+                <a href="#onas">O nas</a>
+                <a href="pages/register.html">Dla organizatorów</a>
+                <a href="pages/login.html">Moje konto</a>
+                <a href="#newsletter">Newsletter</a>
+            </div>
+
+          <!-- INFORMATION -->
+            <div class="footer-column">
+                <h3>Informacje</h3>
+                <a href="pages/contact.html">Kontakt</a>
+                <a href="pages/privacy.html">Polityka prywatności</a>
+                <a href="pages/terms.html">Regulamin</a>
+                <a href="pages/faq.html">FAQ</a>
+            </div>
+        </div>
+
+        <!-- FOOTER BOTTOM -->
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+
+                <p>
+                    &copy; 2026 KlikEvent. Wszelkie prawa zastrzeżone.
+                </p>
+
+                <p>
+                    Stworzone z myślą o dobrych chwilach.
+                    <span aria-hidden="true">✦</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
