@@ -2542,3 +2542,22 @@ input:focus-visible {
         animation: none;
     }
 }
+
+/* =========================================================
+   CITY CARDS – CORRECT CITY PHOTOGRAPHS
+   ========================================================= */
+
+.city-krakow {
+    background-image: url("https://commons.wikimedia.org/wiki/Special:FilePath/Rynek_Glowny_Krakow.jpg?width=1000");
+    background-position: center 48%;
+}
+
+.city-wroclaw {
+    background-image: url("https://commons.wikimedia.org/wiki/Special:FilePath/Wroc%C5%82aw%2C_Dolny_%C5%9Al%C4%85sk%2C_Poland_-_Rynek_-_Ratusz_%28Market_Square_-_Town_Hall%29_-_panoramio_-_MARELBU.jpg?width=1000");
+    background-position: center 48%;
+}
+
+.city-gdansk {
+    background-image: url("https://commons.wikimedia.org/wiki/Special:FilePath/Long_Market_Square_%28Dlugi_Targ%29_in_Gdansk.JPG?width=1000");
+    background-position: center 48%;
+}
