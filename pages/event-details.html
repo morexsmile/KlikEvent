@@ -12,31 +12,80 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/index.css">
+    <script src="../js/index.js" defer></script>
     <script src="../js/event-details.js" defer></script>
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header class="site-header">
-        <div class="header-container">
-            <a class="logo" href="../index.html" aria-label="KlikEvent — strona główna">
-                Klik<span>Event</span>
-            </a>
-          
-            <nav class="main-navigation" aria-label="Menu główne">
-                <a href="../index.html">Strona główna</a>
-                <a href="events.html">Wydarzenia</a>
-                <a href="../index.html#kategorie">Kategorie</a>
-                <a href="../index.html#miasta">Miasta</a>
-            </nav>
+ 
+<!-- HEADER -->
+<header class="site-header" id="top">
+    <div class="container header-container">
 
-            <div class="header-actions">
-                <a class="btn btn-outline" href="login.html">Zaloguj się</a>
-                <a class="btn btn-primary" href="register.html">Dołącz do nas</a>
-            </div>
+        <a href="../index.html" class="logo" aria-label="KlikEvent – strona główna">
+            <span class="logo-icon" aria-hidden="true">
+                <svg viewBox="0 0 40 40" fill="none">
+                    <rect x="5" y="7" width="30" height="28" rx="7"
+                          stroke="currentColor" stroke-width="3"/>
+                    <path d="M12 4V11M28 4V11M5 16H35"
+                          stroke="currentColor" stroke-width="3"
+                          stroke-linecap="round"/>
+                    <path d="M20 19L22.5 24L28 24.8L24 28.7L25 34L20 31.5L15 34L16 28.7L12 24.8L17.5 24Z"
+                          fill="currentColor"/>
+                </svg>
+            </span>
+            <span class="logo-text">
+                Klik<span>Event</span>
+            </span>
+        </a>
+
+        <nav class="main-navigation" aria-label="Menu główne">
+            <a href="../index.html#wydarzenia" class="nav-link active">Wydarzenia</a>
+            <a href="../index.html#kategorie" class="nav-link">Kategorie</a>
+            <a href="../index.html#miasta" class="nav-link">Miasta</a>
+            <a href="../index.html#organizatorzy" class="nav-link">Dla organizatorów</a>
+            <a href="../index.html#onas" class="nav-link">O nas</a>
+        </nav>
+
+        <div class="header-actions">
+            <a href="login.html" class="login-link">Zaloguj się</a>
+            <a href="register.html" class="btn btn-primary">Dołącz do nas</a>
         </div>
-    </header>
+
+        <button
+            class="mobile-menu-toggle"
+            type="button"
+            aria-label="Otwórz menu"
+            aria-expanded="false"
+            aria-controls="mobile-navigation"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+
+    <!-- MOBILE NAVIGATION -->
+    <nav
+        class="mobile-navigation"
+        id="mobile-navigation"
+        aria-label="Menu mobilne"
+        hidden
+    >
+        <a href="../index.html#wydarzenia">Wydarzenia</a>
+        <a href="../index.html#kategorie">Kategorie</a>
+        <a href="../index.html#miasta">Miasta</a>
+        <a href="../index.html#organizatorzy">Dla organizatorów</a>
+        <a href="../index.html#onas">O nas</a>
+
+        <div class="mobile-navigation-actions">
+            <a href="login.html">Zaloguj się</a>
+            <a href="register.html" class="btn btn-primary">Dołącz do nas</a>
+        </div>
+    </nav>
+</header>
+
 
     <!-- BREADCRUMB -->
     <section class="event-breadcrumb-section">
@@ -254,21 +303,74 @@
         </div>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="site-footer">
-        <div class="container footer-bottom">
-            <a class="logo footer-logo" href="../index.html">
-                Klik<span>Event</span>
+  
+<!-- FOOTER -->
+<footer class="site-footer" id="onas">
+
+    <div class="container footer-main">
+
+        <!-- BRAND -->
+        <div class="footer-brand">
+            <a href="../index.html" class="logo">
+                <span class="logo-icon" aria-hidden="true">✦</span>
+                <span class="logo-text">
+                    Klik<span>Event</span>
+                </span>
             </a>
 
             <p>
-                © 2026 KlikEvent. Kliknij. Odkryj. Przeżyj.
+                Kliknij. Odkryj. Przeżyj.
+                Znajdź coś, co warto przeżyć!
             </p>
 
-            <a href="events.html">
-                Wróć do wydarzeń
-            </a>
+            <div class="social-links">
+                <a href="#" aria-label="Instagram KlikEvent">Instagram</a>
+                <a href="#" aria-label="Facebook KlikEvent">Facebook</a>
+                <a href="#" aria-label="TikTok KlikEvent">TikTok</a>
+            </div>
         </div>
-    </footer>
-</body>
-</html>
+
+        <!-- DISCOVER -->
+        <div class="footer-column">
+            <h3>Odkrywaj</h3>
+            <a href="events.html">Wszystkie wydarzenia</a>
+            <a href="../index.html#kategorie">Kategorie</a>
+            <a href="../index.html#miasta">Miasta</a>
+            <a href="events.html?category=koncerty">Koncerty</a>
+            <a href="events.html?category=sport">Sport</a>
+        </div>
+
+        <!-- PLATFORM -->
+        <div class="footer-column">
+            <h3>Platforma</h3>
+            <a href="../index.html#onas">O nas</a>
+            <a href="register.html">Dla organizatorów</a>
+            <a href="login.html">Moje konto</a>
+            <a href="../index.html#newsletter">Newsletter</a>
+        </div>
+
+        <!-- INFORMATION -->
+        <div class="footer-column">
+            <h3>Informacje</h3>
+            <a href="contact.html">Kontakt</a>
+            <a href="privacy.html">Polityka prywatności</a>
+            <a href="terms.html">Regulamin</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+
+    </div>
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+        <div class="container footer-bottom-content">
+            <p>
+                &copy; 2026 KlikEvent. Wszelkie prawa zastrzeżone.
+            </p>
+
+            <p>
+                Stworzone z myślą o dobrych chwilach.
+                <span aria-hidden="true">✦</span>
+            </p>
+        </div>
+    </div>
+</footer>
