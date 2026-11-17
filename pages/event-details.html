@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Poznaj szczegóły wydarzenia na KlikEvent. Sprawdź datę, lokalizację, opis i dostępne bilety.">
+    <meta name="theme-color" content="#241047">
+    <title>Szczegóły wydarzenia | KlikEvent</title>
+    <link rel="icon" href="../assets/icons/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="../js/event-details.js" defer></script>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="header-container">
+            <a class="logo" href="../index.html" aria-label="KlikEvent — strona główna">
+                Klik<span>Event</span>
+            </a>
+          
+            <nav class="main-navigation" aria-label="Menu główne">
+                <a href="../index.html">Strona główna</a>
+                <a href="events.html">Wydarzenia</a>
+                <a href="../index.html#kategorie">Kategorie</a>
+                <a href="../index.html#miasta">Miasta</a>
+            </nav>
+
+            <div class="header-actions">
+                <a class="btn btn-outline" href="login.html">Zaloguj się</a>
+                <a class="btn btn-primary" href="register.html">Dołącz do nas</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <section class="event-breadcrumb-section">
+        <div class="event-container">
+            <nav class="event-breadcrumb" aria-label="Okruszki nawigacyjne">
+                <a href="../index.html">Strona główna</a>
+                <span>/</span>
+                <a href="events.html">Wydarzenia</a>
+                <span>/</span>
+                <span aria-current="page">Szczegóły wydarzenia</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- EVENT DETAILS -->
+    <main class="event-details-page">
+        <div class="event-container">
+            <div id="event-loading" class="event-status">
+                <div class="event-loader" aria-hidden="true"></div>
+                <p>Ładowanie wydarzenia...</p>
+            </div>
+
+            <section id="event-not-found" class="event-not-found" hidden>
+                <span class="event-not-found-icon" aria-hidden="true">🔎</span>
+                <h1>Nie znaleźliśmy tego wydarzenia</h1>
+
+                <p>
+                    Wygląda na to, że wydarzenie nie istnieje lub nie jest już dostępne.
+                </p>
+
+                <a href="events.html" class="btn btn-primary">
+                    Zobacz wszystkie wydarzenia
+                </a>
+            </section>
+
+            <div id="event-content" hidden>
+              
+                <!-- EVENT HERO -->
+                <section class="event-detail-hero">
+                    <div class="event-detail-image-wrapper">
+                        <img
+                            id="event-image"
+                            class="event-detail-image"
+                            src=""
+                            alt=""
+                        >
+
+                        <span id="event-category" class="event-detail-category"></span>
+                    </div>
+
+                    <div class="event-detail-heading">
+                        <div class="event-detail-heading-main">
+                            <p class="event-eyebrow">ODKRYJ WYDARZENIE</p>
+                            <h1 id="event-title"></h1>
+                            <p id="event-short-description" class="event-short-description"></p>
+                        </div>
+
+                        <div class="event-detail-location">
+                            <span aria-hidden="true">📍</span>
+                            <span id="event-city"></span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- EVENT MAIN CONTENT -->
+                <section class="event-detail-layout">
+                    <div class="event-detail-main">
+
+                        <!-- EVENT DESCRIPTION -->
+                        <article class="event-content-card">
+                            <h2>O wydarzeniu</h2>
+                            <div id="event-description" class="event-description"></div>
+                        </article>
+
+                        <!-- EVENT INFORMATION -->
+                        <article class="event-content-card">
+                            <h2>Informacje praktyczne</h2>
+                            <div class="event-information-grid">
+                                <div class="event-information-item">
+                                    <span class="event-information-icon" aria-hidden="true">📅</span>
+                                    <div>
+                                        <span class="event-information-label">Data</span>
+                                        <strong id="event-date"></strong>
+                                    </div>
+                                </div>
+
+                                <div class="event-information-item">
+                                    <span class="event-information-icon" aria-hidden="true">🕒</span>
+                                    <div>
+                                        <span class="event-information-label">Godzina</span>
+                                        <strong id="event-time"></strong>
+                                    </div>
+                                </div>
+
+                                <div class="event-information-item">
+                                    <span class="event-information-icon" aria-hidden="true">📍</span>
+                                    <div>
+                                        <span class="event-information-label">Miasto</span>
+                                        <strong id="event-location-city"></strong>
+                                    </div>
+                                </div>
+
+                                <div class="event-information-item">
+                                    <span class="event-information-icon" aria-hidden="true">🎟️</span>
+                                    <div>
+                                        <span class="event-information-label">Cena biletu</span>
+                                        <strong id="event-information-price"></strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- ORGANIZER -->
+                        <article class="event-content-card">
+                            <h2>Organizator</h2>
+                            <div class="event-organizer">
+                                <div class="event-organizer-avatar" aria-hidden="true">
+                                    K
+                                </div>
+
+                                <div>
+                                    <h3 id="event-organizer-name"></h3>
+                                    <p>Organizator wydarzenia</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- TICKET SIDEBAR -->
+                    <aside class="event-ticket-sidebar">
+                        <div class="event-ticket-card">
+                            <p class="event-ticket-eyebrow">WEŹ UDZIAŁ</p>
+                            <h2>Twój bilet</h2>
+                            <div class="event-ticket-price">
+                                <strong id="event-ticket-price"></strong>
+                                <span>/ osoba</span>
+                            </div>
+
+                            <div class="event-ticket-divider"></div>
+                            <div class="event-ticket-summary">
+                                <div>
+                                    <span>Wydarzenie</span>
+                                    <strong id="ticket-event-name"></strong>
+                                </div>
+
+                                <div>
+                                    <span>Data</span>
+                                    <strong id="ticket-event-date"></strong>
+                                </div>
+
+                                <div>
+                                    <span>Lokalizacja</span>
+                                    <strong id="ticket-event-city"></strong>
+                                </div>
+                            </div>
+
+                            <div class="event-ticket-quantity">
+                                <label for="ticket-quantity">
+                                    Liczba biletów
+                                </label>
+
+                                <div class="ticket-quantity-control">
+
+                                    <button
+                                        type="button"
+                                        id="quantity-decrease"
+                                        aria-label="Zmniejsz liczbę biletów"
+                                    >
+                                        −
+                                    </button>
+
+                                    <input
+                                        type="number"
+                                        id="ticket-quantity"
+                                        value="1"
+                                        min="1"
+                                        max="10"
+                                        inputmode="numeric"
+                                        aria-label="Liczba biletów"
+                                    >
+
+                                    <button
+                                        type="button"
+                                        id="quantity-increase"
+                                        aria-label="Zwiększ liczbę biletów"
+                                    >
+                                        +
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="event-ticket-total">
+
+                                <span>Łącznie</span>
+
+                                <strong id="ticket-total-price"></strong>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                id="reserve-ticket-button"
+                                class="btn btn-primary event-reserve-button"
+                            >
+                                Zarezerwuj bilet
+                            </button>
+
+                            <p class="event-ticket-note">
+                                Rezerwacja demonstracyjna. Zakup i płatności online nie są jeszcze aktywne.
+                            </p>
+                        </div>
+                    </aside>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-bottom">
+            <a class="logo footer-logo" href="../index.html">
+                Klik<span>Event</span>
+            </a>
+
+            <p>
+                © 2026 KlikEvent. Kliknij. Odkryj. Przeżyj.
+            </p>
+
+            <a href="events.html">
+                Wróć do wydarzeń
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
